@@ -1,0 +1,18 @@
+Prototype ระบบยืนยันตัวตนผู้ใช้ที่เป็นนักศึกษามหาวิทยาลัยต่างๆ ซึ่งไปขอเข้าใช้บริการของห้องสมุดอีกมหาวิทยาลัยหนึ่งในเครือข่าย PULINET ด้วยสิทธิ์ของสมาชิก PULINET
+
+Call to action 
+https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=profilepsu&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php
+
+OAuth2 URL Redirect/Callback URL
+https://ideatank.oas.psu.ac.th/pulinet/callback.php
+
+OAuth(Client ID : oauthpsu1971 ,Secret ID : 29d4961b9d5d00d17e1514294bc4285a)
+
+-----------
+1. ผู้ใช้เลือกได้ว่ามาจาก ม. ไหน ปุ่มคลิกเพื่อยืนยันตัวตนจะเปลี่ยนค่า url ไปเป็นของ ม. นั้น
+2. หน้า callback รับค่า tokenID + stat เพื่อใช้ในการ fetch ค่าข้อมูลผู้ใช้ (แต่ละ ม. ไม่เหมือนกัน) -> ส่งไปเรียกใช้งาน fx()
+3. แสดงผล 
+- กรณีพบค่า แสดงชื่อ-สกุล อีเมล ฯลฯ พร้อมสร้าง barcode สำหรับใช้สแกนเข้าห้องสมุด (บันทึก barcode ลงฐานข้อมูลประตู) 
+- กรณีไม่พบค่า แสดงข้อความแจ้ง และช่องทางให้ยืนยันตัวตนใหม่
+
+*//echo var_dump($json2); พบข้อมูลน้อย ลองใช้ postman แสดงค่า
