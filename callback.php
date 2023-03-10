@@ -31,9 +31,10 @@ if (isset($_GET['code'])) {
     $_SESSION['displayname'] = $json2->displayname;
     $_SESSION['description'] = $json2->description;
     $_SESSION['user_email'] = $json2->user_email;
-    //echo var_dump($json2);
+    // echo var_dump($json2);
+    // exit();
 
-    if (empty($_SESSION['user_login'])) { //กรณี Authen ไม่ผ่าน ไม่พบข้อมูลผู้ใช้ *ำม่เกิดขึ้นเพราะจะติดตั้งแต่หน้า login แล้ว
+    if (empty($_SESSION['user_login'])) { //กรณี Authen ไม่ผ่าน ไม่พบข้อมูลผู้ใช้ *ไม่เกิดขึ้นเพราะจะติดตั้งแต่หน้า login แล้ว
 ?>
         ?>
         <div class="card">
@@ -57,7 +58,7 @@ if (isset($_GET['code'])) {
         </script>
     <?php
     }
-} else {//กรณีเข้า callback.php ตรงๆ
+} else {//กรณีมีการเข้าหน้า callback.php ตรงๆ โดยไม่ผ่านการ authen
     ?>
     <script>
         window.location.href = "https://ideatank.oas.psu.ac.th/pulinet/";

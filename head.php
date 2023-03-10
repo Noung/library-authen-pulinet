@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Library Authen for PULINET Member</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -33,6 +34,16 @@
 
         .card-text {
             font-size: 14px;
+        }
+
+        .barcode {
+            display: flex;
+            flex-direction: column;
+            /*align-items: center;*/
+        }
+
+        .barcode-text {
+            font-size: 13px;
         }
 
         .libsitename {

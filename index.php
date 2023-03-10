@@ -2,7 +2,7 @@
 session_start();
 include("head.php");
 
-    if (empty($_SESSION['user_login'])) {
+if (empty($_SESSION['user_login'])) {
 ?>
     <div class="card">
         <div class="card-body text-center">
@@ -18,7 +18,7 @@ include("head.php");
         </div>
     </div>
 <?php
-}else{
+} else {
 ?>
     <div class="card">
         <div class="card-body text-center">
@@ -28,7 +28,12 @@ include("head.php");
                 <h4 class="card-title">Library Authen</h4>
                 <p class="card-text">ยินดีต้อนรับคุณ</p>
                 <!-- <p class="libsitename">มหาวิทยาลัยสงขลานครินทร์</p> -->
-                <p class="card-text"><h4><?= $_SESSION['description'] ?></h4><?= $_SESSION['user_email'] ?></p>
+                <p class="card-text">
+                <h4><?= $_SESSION['description'] ?></h4><?= $_SESSION['user_email'] ?></p>
+                <div class="barcode">
+                    <img alt="Barcode" src="barcode.php?text=0014924" />
+                    <span class="barcode-text">*0014924*</span>
+                </div>
                 <!-- <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=profilepsu&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a> -->
             </div>
         </div>
