@@ -31,8 +31,8 @@ if (isset($_GET['code'])) {
     $_SESSION['displayname'] = $json2->displayname;
     $_SESSION['description'] = $json2->description;
     $_SESSION['user_email'] = $json2->user_email;
-    // echo var_dump($json2);
-    // exit();
+     echo var_dump($json2);
+     exit();
 
     if (empty($_SESSION['user_login'])) { //กรณี Authen ไม่ผ่าน ไม่พบข้อมูลผู้ใช้ *ไม่เกิดขึ้นเพราะจะติดตั้งแต่หน้า login แล้ว
 ?>
@@ -46,7 +46,7 @@ if (isset($_GET['code'])) {
                     <p class="card-text">ขออภัย ไม่พบข้อมูลนักศึกษา</p>
                     <!-- <p class="libsitename">มหาวิทยาลัยสงขลานครินทร์</p>
                         <p class="card-text"></p> -->
-                    <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=profilepsu&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a>
+                    <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=jfkprofile&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@ if (isset($_GET['code'])) {
         </script>
     <?php
     }
-} else {//กรณีมีการเข้าหน้า callback.php ตรงๆ โดยไม่ผ่านการ authen
+} else { //กรณีมีการเข้าหน้า callback.php ตรงๆ โดยไม่ผ่านการ authen
     ?>
     <script>
         window.location.href = "https://ideatank.oas.psu.ac.th/pulinet/";

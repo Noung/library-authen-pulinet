@@ -50,7 +50,7 @@
             border: 0px solid;
             background-color: bisque;
             border-radius: 15px;
-            padding: 2px 10px 2px 10px;
+            padding: 8px 8px 8px 8px;
             margin: -10px 5px 5px 5px;
         }
     </style>

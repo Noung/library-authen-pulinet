@@ -11,9 +11,17 @@ if (empty($_SESSION['user_login'])) {
             <div class="main-content">
                 <h4 class="card-title">Library Authen</h4>
                 <p class="card-text">นักศึกษายืนยันตัวตนเพื่อเข้าใช้บริการห้องสมุดด้วยสิทธิ์ของสมาชิก PULINET</p>
-                <p class="libsitename">มหาวิทยาลัยสงขลานครินทร์</p>
+                <!-- <p class="libsitename">มหาวิทยาลัยสงขลานครินทร์</p> -->
+                <div class="libsitename"><select id="university" name="university">
+                        <option value="cmu">มหาวิทยาลัยเชียงใหม่</option>
+                        <option value="kku">มหาวิทยาลัยขอนแก่น</option>
+                        <option value="stou">มหาวิทยาลัยสุโขทัยธรรมาธิราช</option>
+                        <option value="buu">มหาวิทยาลัยบูรพา</option>
+                        <option value="psu">มหาวิทยาลัยสงขลานครินทร์</option>
+                    </select>
+                </div>
                 <p class="card-text"></p>
-                <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=profilepsu&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a>
+                <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=jfkprofile&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a>
             </div>
         </div>
     </div>
@@ -34,7 +42,7 @@ if (empty($_SESSION['user_login'])) {
                     <img alt="Barcode" src="barcode.php?text=0014924" />
                     <span class="barcode-text">*0014924*</span>
                 </div>
-                <!-- <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=profilepsu&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a> -->
+                <!-- <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=jfkprofile&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a> -->
             </div>
         </div>
     </div>
