@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("head.php");
+include("inc/head.php");
 
 if (isset($_GET['code'])) {
     $ch = curl_init();
@@ -31,11 +31,11 @@ if (isset($_GET['code'])) {
     $_SESSION['displayname'] = $json2->displayname;
     $_SESSION['description'] = $json2->description;
     $_SESSION['user_email'] = $json2->user_email;
-    //echo var_dump($json2);
+    //  echo var_dump($json2);
+    //  exit();
 
-    if (empty($_SESSION['user_login'])) { //กรณี Authen ไม่ผ่าน ไม่พบข้อมูลผู้ใช้ *ำม่เกิดขึ้นเพราะจะติดตั้งแต่หน้า login แล้ว
+    if (empty($_SESSION['user_login'])) { //กรณี Authen ไม่ผ่าน ไม่พบข้อมูลผู้ใช้ *ไม่เกิดขึ้นเพราะจะติดตั้งแต่หน้า login แล้ว
 ?>
-        ?>
         <div class="card">
             <div class="card-body text-center">
                 <img src="http://www.pulinet.org/wp-content/uploads/2021/05/cropped-pulinet-logomini.png" width="60%" class="card-img-top" alt="PSU Logo">
@@ -43,9 +43,19 @@ if (isset($_GET['code'])) {
                 <div class="main-content">
                     <h4 class="card-title">Library Authen</h4>
                     <p class="card-text">ขออภัย ไม่พบข้อมูลนักศึกษา</p>
-                    <!-- <p class="libsitename">มหาวิทยาลัยสงขลานครินทร์</p>
-                        <p class="card-text"></p> -->
-                    <a href="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=profilepsu&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> ยืนยันตัวตน</a>
+                    <!-- <p class="libsitename">มหาวิทยาลัยสงขลานครินทร์</p> -->
+                    <div class="libsitename">
+                        <select id="uniName" name="uniName" onchange="onChangeUni()" style="text-align: center;" required>
+                            <option value="">ระบุมหาวิทยาลัยต้นสังกัด</option>
+                            <option value="cmu">มหาวิทยาลัยเชียงใหม่</option>
+                            <option value="kku">มหาวิทยาลัยขอนแก่น</option>
+                            <option value="stou">มหาวิทยาลัยสุโขทัยธรรมาธิราช</option>
+                            <option value="buu">มหาวิทยาลัยบูรพา</option>
+                            <option value="https://oauth.psu.ac.th/?oauth=authorize&client_id=oauthpsu1971&response_type=code&scope=jfkprofile&redirect_uri=https://ideatank.oas.psu.ac.th/pulinet/callback.php">มหาวิทยาลัยสงขลานครินทร์</option>
+                        </select>
+                    </div>
+                    <p class="card-text"></p>
+                    <a id="calltoact" href="#" class="btn btn-primary"><i class="fa fa-id-badge" aria-hidden="true"></i> ยืนยันตัวตน</a>
                 </div>
             </div>
         </div>
@@ -57,12 +67,12 @@ if (isset($_GET['code'])) {
         </script>
     <?php
     }
-} else {//กรณีเข้า callback.php ตรงๆ
+} else { //กรณีมีการเข้าหน้า callback.php ตรงๆ โดยไม่ผ่านการ authen
     ?>
     <script>
         window.location.href = "https://ideatank.oas.psu.ac.th/pulinet/";
     </script>
 <?php
 }
-include("foot.php");
+include("inc/foot.php");
 ?>

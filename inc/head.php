@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Library Authen for PULINET Member</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -35,14 +36,31 @@
             font-size: 14px;
         }
 
+        .barcode {
+            display: flex;
+            flex-direction: column;
+            /*align-items: center;*/
+        }
+
+        .barcode-text {
+            font-size: 13px;
+        }
+
         .libsitename {
             border: 0px solid;
             background-color: bisque;
             border-radius: 15px;
-            padding: 2px 10px 2px 10px;
+            padding: 8px 8px 8px 8px;
             margin: -10px 5px 5px 5px;
         }
     </style>
+    <script>
+        //ฟังก์ชันเปลี่ยนค่า href ตามการเลือกมหาวิทยาลัย
+        function onChangeUni() {
+            let code = document.getElementById("uniName").value;
+            document.getElementById("calltoact").href = code;
+        }
+    </script>
 </head>
 
 <body>
